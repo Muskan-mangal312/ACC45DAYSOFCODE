@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class A
+{
+int x, y;
+public :
+A ()
+{
+x = y = 0;
+}
+A (int x1, int y1)
+{
+x = x1;
+y = y1;
+}
+void disp ( )
+{
+cout<<"X :"<<x<<"Y :"<<y<<endl;
+}
+friend A operator + (A, A);    // using freind + operator overloding 
+};
+
+A operator + (A ob1, A ob2)    // body of + operator oveloading 
+{
+A temp;
+temp.x = ob1.x + ob2.x;     // ob1 x=20 , y=30
+temp.y = ob1.y + ob2.y;     // ob2 x=35 , y=45
+return temp;                // temp.x=20+35 , temp.y=30+45
+}
+main ( )
+{
+A ob1(10,20), ob2(20,30), ob3;    // output 30 and  50 
+
+ob3 = ob1 + ob2;      // operator oveloding + 
+ob3.disp ( );
+
+}
