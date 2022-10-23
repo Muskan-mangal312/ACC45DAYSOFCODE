@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+// virtual constrcutor and desctructor 
+class A
+{
+public:
+A()
+{
+cout<<" Base class constructor"<<endl;
+}	
+virtual ~A()              // virtual desctructor 
+{
+	cout<<"Base class desctructor"<<endl;
+}
+};
+class B :public A      // inheritance 
+{
+	public:
+		B()
+		{
+			cout<<"Derived constructor call"<<endl;
+		}
+		~B()
+		{
+			cout<<"Derieved desctructor call"<<endl;
+		}
+};
+
+int main()
+{
+	A *ob;       // case 1
+ob=new A;
+ob=new B;
+
+ //case2
+//A *ob= new B();   // base pointer obejct and memory allocation for derieved class
+//delete ob;
+
+//case3
+//B *d = new B();   // derived pointer obejct 
+  //A *b = d;        // address copy
+  //delete b;	      // memory leak
+}
