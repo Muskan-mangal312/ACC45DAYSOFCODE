@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+class student 
+{
+    int marks,roll_no;
+    string name;
+    public:
+    student()
+    {
+        roll_no = marks =0;
+        string name = " ";
+    }
+    student( int rn,int mk,string nm)
+    {
+        roll_no = rn;
+        marks=mk;
+        name= nm;
+    }
+    void get ()
+    {
+        cout<<"Enter the roll_no"<<endl;
+        cin>>roll_no;
+         cout<<"Enter the marks"<<endl;
+        cin>>marks;
+         cout<<"Enter the name"<<endl;
+        cin>>name;
+    }
+    void disp()
+    {
+       cout<<"roll_no"<<roll_no<<endl<<"marks"<<marks<<endl<<"name"<<name<<endl;
+    }
+};
+int main()
+{
+    student *ob1,*ob2;
+    ob1=new student();
+    ob2 = new student(1,99,"abhishek");
+    ob1->get();
+    ob1->disp();
+    ob2->disp();
+    return 0;
+    
+}
