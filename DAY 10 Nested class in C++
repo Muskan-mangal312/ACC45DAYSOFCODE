@@ -1,0 +1,26 @@
+#include<iostream>
+
+// nested class
+using namespace std;
+class Nest
+{
+public:
+class Display
+{
+private:
+int s;  
+public:
+void sum( int a, int b)
+{ s =a+b; }
+
+void show()
+{ cout << "\ n Sum of a and b is:: " << s;}
+
+};
+};
+main()
+{
+Nest::Display x;  
+x.sum(12, 10);
+x.show();
+}
