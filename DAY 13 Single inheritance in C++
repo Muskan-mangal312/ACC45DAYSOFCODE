@@ -1,0 +1,65 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class students
+{  private:
+    int roll_no,sec;
+    string name,add;
+    public:
+    students()
+    {
+        roll_no,sec = 0;
+        string name = " ";
+        string add = " ";
+    }
+    students( int rn,int d,string aman,string gwl){
+        roll_no=rn;
+        sec=d;
+        name=aman;
+        add=gwl;
+    }
+    void get()
+    {
+        cout<<"Enter the details"<<endl;
+        cin>>roll_no>>sec>>name>>add;
+    }
+    void disp()
+    {
+        cout<<roll_no<<endl<<sec<<endl<<name<<endl<<add<<endl;
+    }
+};
+class marks : public students
+{
+    private:
+    int m1,m2,m3,total;
+    public:
+    marks()
+    {
+        m1,m2,m3 =0;
+    }
+    marks(int ma,int mb,int mc,int rn,int d,string aman,string add): students(rn,d,"aman","gwl")
+    {
+        m1= ma;
+        m2= mb;
+        m3= mc;
+    }
+    void get()
+    {
+        students :: get();
+        cout<<"Enter the value"<<endl;
+        cin>>m1>>m2>>m3;
+    }
+    void disp()
+    {
+        students :: disp();
+        cout<<m1<<endl<<m2<<endl<<m3<<endl<<"aman is intelligent"<<endl;
+        cout<<m1+m2+m3<<endl;
+    }
+};
+int main()
+{
+   marks ob;
+   ob.get();
+   ob.disp();
+    return 0;
+}
