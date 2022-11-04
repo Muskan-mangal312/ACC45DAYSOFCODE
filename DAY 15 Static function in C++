@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+class A
+{
+static int i,j,k;
+	static int count;
+	public:
+		void get(){
+			cout<<"ENTER I,J,K :";
+			cin>>i>>j>>k;
+			count++;
+			}	
+  static void disp1(){
+	cout<<"I:"<<i<<endl<<"J:"<<j<<endl<<"K:"<<k<<endl;
+	cout<<"count:"<<count<<endl;
+}
+};
+int A::count=0;     // file scope
+int A::i;
+int A::j;
+int A::k;
+int main()
+{
+	A ob1,ob2,ob3,ob4;
+	ob1.get();
+	A::disp1();
+	ob1.disp1();
+	ob2.get();
+ A::disp1();
+	}
