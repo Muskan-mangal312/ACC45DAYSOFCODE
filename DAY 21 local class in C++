@@ -1,0 +1,26 @@
+#include<iostream>
+Using namespace std;
+ void main() 
+ { 
+     class student                        //Iocal class 
+      { 
+         private: 
+         int rn; 
+         float fees; 
+         public: 
+           void get() { 
+                cout<<"Enter the rollno. and fees of the student";
+ 
+                cin>>rn>>fees; 
+                   }
+           void display(){ 
+
+                 cout<<"The rollno. is : "<<rn<<endl; 
+
+                 cout<<"The fees is : "<<fees<<endl; 
+                     } 
+       };
+                 student st;             //local object 
+                 st.get();
+                 st.display();
+    } 
