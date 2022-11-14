@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+class array
+{    int *arr,sz;
+    public:
+    array()
+    {    arr = new int [5];
+        sz = 5;}
+        array(int size)
+        {
+        arr= new int[size];
+        sz = size;
+        }
+        void get()
+        {
+            for(int i =0; i< sz; i++)
+            {
+                cout<<"Enter the values";
+                cin>>*(arr+i);
+            }
+        }
+        void disp()
+        {
+            cout<<" "<<endl;
+        }   
+    };
+int main()
+{
+   array ob;
+   ob.get();
+   ob.disp();
+    return 0;
+}
