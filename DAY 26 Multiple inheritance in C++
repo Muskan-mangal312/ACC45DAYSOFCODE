@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class A
+{
+    int a;
+
+  public:
+    A() { a = 0; }
+    A(int a1) { a = a1; }
+    void get()
+    {
+        cout << "enter a" << endl;
+        cin >> a;
+    }
+    void disp()
+    {
+        cout << "value of a =  " << a << endl;
+    }
+};
+
+class B
+{
+    int b;
+
+  public:
+    B() { b = 0; }
+    B(int b1) { b = b1; }
+
+    void get()
+    {
+        cout << "Enter b" << endl;
+        cin >> b;
+    }
+    void disp()
+    {
+        cout << "value of b =   " << b << endl;
+    }
+};
+
+class C : public A, public B
+{
+    int c;
+
+  public:
+    C() { c = 0; }
+    C(int a1, int b1, int c1) : A(a1), B(b1) { c = c1; }
+    void get()
+    {
+        A::get();
+        B::get();
+        cout << "Enter c" << endl;
+        cin >> c;
+    }
+    void disp()
+    {
+        A::disp();
+        B::disp();
+        cout << "value of c =   " << c << endl;
+    }
+};
+int main()
+{
+    C ob1;
+    ob1.get();
+    ob1.disp();
+    return 0;
+}
