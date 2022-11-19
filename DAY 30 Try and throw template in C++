@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+main ( )
+{
+int x, y;
+cout<<"Enter x : ";
+cin>>x;
+cout<<"Enter Y : ";
+cin>>y;
+try
+{
+if (x<=10)
+throw 0;
+else if (x>10 && x<=20)   // 11 19  x>=10 and && x<=20
+throw 1.2f;              // 1.2 
+else if (x>20 && x<=50)
+throw "My Error";
+else
+cout<<"No Error"<<endl;
+}
+catch (int err)
+{
+cout<<"Int Error block"<<endl;
+}
+catch (float err)
+{
+cout<<"Float error block "<<endl;
+}
+catch (char *err)
+{
+cout<<"String error :"<<err<<endl;
+}
+}
