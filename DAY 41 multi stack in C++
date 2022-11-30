@@ -1,0 +1,97 @@
+#include<iostream>
+using namespace std;
+
+int arr_size = 9 , no_of_stack=3 , stack_choice;
+int *arr = new int(arr_size);
+int *top = new int(no_of_stack);
+int *overflow = new int(no_of_stack);
+int *underflow = new int(no_of_stack);
+
+void push()
+{   int item;
+    cout<<"total no of stack  : "<<no_of_stack<<endl;
+    cout<<"enter stack choice"<<endl;
+    cin>>stack_choice;
+    
+    if(top[stack_choice-1]>=overflow[stack_choice-1])
+    {
+        cout<<"stack overflow"<<endl;
+    }
+    else
+    {
+        cout<<"enter item"<<endl;
+        cin>>item;
+        top[stack_choice-1]++;
+        arr[top[stack_choice-1]]=item;
+    }
+}
+
+void pop()
+
+{
+    int temp;
+    cout<<"enter stack choice"<<endl;
+    cin>>stack_choice;
+    if(top[stack_choice-1]==overflow[stack_choice-1])
+    {
+        cout<<"stack underflow"<<endl;
+    }
+    else
+    {
+        temp=arr[top[stack_choice-1]];
+        top[stack_choice-1]--;
+    }
+}
+
+void display()
+{
+    cout<<"enter stack choice"<<endl;
+    cin>>stack_choice;
+    if(top[stack_choice]==underflow[stack_choice-1])
+    {
+        cout<<"underflow"<<endl;
+    }
+    else 
+	{
+	  for(int i=underflow[stack_choice-1]+1;i<=top[stack_choice-1];i++)	
+	  {
+	      cout<<arr[i]<<endl;			
+	  }
+	} 
+
+}
+
+int main()
+{
+    int choice;
+
+    for(int i=0;  i <no_of_stack;  i++)
+    {
+        overflow[i]=(arr_size/no_of_stack)*(i+1)-1;
+        underflow[i]=(arr_size/no_of_stack)*i-1;
+        top[i]=(arr_size/no_of_stack)*i-1;
+    }
+    while(1)
+    {
+        cout<<"\n\n";
+        cout<<"\n1. Push";
+        cout<<"\n2. Pop";
+        cout<<"\n3. Dispaly";
+        cout<<"\n4. Exit";
+        cout<<"\nEnter your choice:";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1: push();
+                    break;
+            case 2: pop();
+                    break;
+            case 3: display();
+                    break;
+            case 4: exit(0);
+            default: cout<<"\nYou have entered wrong choice!!";
+        }
+    }
+
+    return 0;
+}
