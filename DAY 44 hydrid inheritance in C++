@@ -1,0 +1,72 @@
+Online Tutorials & Training Materials | STechies.com
+C++»C++ Tutorial
+Hybrid Inheritance Sample Program in C++
+
+Inheritance is one of the important concepts of Object-Oriented Programming. It is the process by which a class inherits the properties of another class. Hybrid inheritance in C++is a process which involves two or more types of inheritance.
+
+In this post, we will learn more about hybrid inheritance in C++, with the help of a sample program. But first, let us wrap our heads around the basics.
+
+What is Hybrid or Multi-path Inheritance in C++?
+Hybrid inheritance, also called multipath inheritance, is the process of deriving a class using more than one level or more than one mode of inheritance.
+
+For example, a class ‘marks’ is derived from class ‘stu’ by single level inheritance. Another class ‘sports’ is created, and a class ‘result’ is derived from both ‘marks’ and ‘sports’ classes by multiple inheritances. The class ‘result’ is derived using hybrid inheritance. In another example, two classes ‘d1’ and ‘d2’ are derived from base class ‘B’ using hierarchical inheritance.
+
+Another class ‘D’ is derived from classes 'd1’ and ‘d2’ using multiple inheritances. The class ‘D’ is now derived using hybrid inheritance.
+
+C++ Multi-path Inheritance
+
+Hybrid Inheritance in C++: A sample program
+#include<iostream.h>
+#include<conio.h>
+class stu{ //First base Class//
+	int id;
+	char name[20];
+	public: //If not declared, data members are by default defined as private//
+
+	void getstu(){
+		cout << "Enter stuid, name";
+		cin >> id >> name;
+	}
+};
+
+class marks: public stu{//derived class//
+	protected: //without this command, data members will not be available next//
+	int m, p, c;// without ‘protected:’ command, m1, m2, & m3 are private members//
+	public:
+	void getmarks(){
+		cout << "Enter 3 subject marks:";
+		cin >> m >> p >> c;
+	}
+};
+
+class sports{//Second base class//
+	protected:
+	int spmarks;
+	public:
+	void getsports(){
+		cout << "Enter sports marks:";
+		cin >> spmarks;
+	}
+};
+
+class result : public marks, public sports{//Derived class by hybrid inheritance//
+	int tot;
+	float avg;
+	public :
+	void show(){}
+		tot=m+p+c;
+		avg=tot/3.0;
+		cout << "Total=" << tot << endl;
+		cout << "Average=" << avg << endl;
+		cout << "Average + Sports marks =" << avg+spmarks;
+	}
+};
+
+void main(){
+	result r;//object//
+	r.getstu();
+	r.getmarks();
+	r.getsports();
+	r.show();
+	getch();
+};
